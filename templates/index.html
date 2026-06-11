@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ event_name }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <main class="page">
+        <section class="hero card">
+            <p class="tag">Flask 动态网页 · GitHub 小组协作</p>
+            <h1>{{ event_name }}</h1>
+            <p class="description">{{ event_description }}</p>
+            <p class="notice">{{ event_notice }}</p>
+        </section>
+
+        <section class="grid">
+            <section class="card">
+                <h2>填写报名信息</h2>
+                <p class="muted">{{ welcome_text }}</p>
+                <p class="tip">{{ form_tips }}</p>
+                <form action="{{ url_for('signup') }}" method="post" class="signup-form">
+                    <label>
+                        姓名
+                        <input name="name" placeholder="例如：张三" required>
+                    </label>
+                    <label>
+                        小组
+                        <select name="group" required>
+                            {% for group in group_options %}
+                            <option value="{{ group }}">{{ group }}</option>
+                            {% endfor %}
+                        </select>
+                    </label>
+                    <label>
+                        活动方向
+                        <select name="activity" required>
+                            {% for activity in activity_options %}
+                            <option value="{{ activity }}">{{ activity }}</option>
+                            {% endfor %}
+                        </select>
+                    </label>
+                    <label>
+                        一句话说明
+                        <textarea name="reason" rows="4" placeholder="写一句你为什么想参加"></textarea>
+                    </label>
+                    <button type="submit">提交报名并查看统计</button>
+                </form>
+            </section>
+
+            <section class="card side-card">
+                <h2>当前状态</h2>
+                <div class="big-number">{{ total }}</div>
+                <p class="muted">已有报名记录</p>
+                <a class="link-button" href="{{ url_for('result') }}">直接查看统计结果</a>
+            </section>
+        </section>
+    </main>
+</body>
+</html>

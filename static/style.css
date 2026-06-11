@@ -1,0 +1,166 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Microsoft YaHei", "Noto Sans CJK SC", Arial, sans-serif;
+    background: #eef2ff;
+    color: #1f2937;
+}
+
+.page {
+    width: min(1120px, calc(100% - 32px));
+    margin: 0 auto;
+    padding: 32px 0;
+}
+
+.card {
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 28px;
+    box-shadow: 0 18px 45px rgba(79, 70, 229, 0.12);
+    border: 1px solid #dbeafe;
+}
+
+.hero {
+    margin-bottom: 24px;
+    background: linear-gradient(135deg, #ffffff, #dbeafe);
+}
+
+.tag {
+    display: inline-block;
+    margin: 0 0 10px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    color: #1d4ed8;
+    background: #dbeafe;
+    font-weight: 700;
+}
+
+h1 {
+    margin: 0;
+    font-size: 42px;
+    color: #1e3a8a;
+}
+
+h2 {
+    margin-top: 0;
+    color: #1e40af;
+}
+
+.description {
+    font-size: 20px;
+    line-height: 1.7;
+}
+
+.notice,
+.tip {
+    padding: 12px 14px;
+    border-radius: 14px;
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.muted {
+    color: #64748b;
+    line-height: 1.7;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 24px;
+}
+
+.signup-form {
+    display: grid;
+    gap: 16px;
+}
+
+label {
+    display: grid;
+    gap: 8px;
+    font-weight: 700;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    border: 1px solid #cbd5e1;
+    border-radius: 14px;
+    padding: 12px 14px;
+    font: inherit;
+    background: #f8fafc;
+}
+
+button,
+.link-button {
+    display: inline-block;
+    border: 0;
+    border-radius: 14px;
+    padding: 12px 18px;
+    color: #ffffff;
+    background: #2563eb;
+    font-weight: 800;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.side-card {
+    align-self: start;
+    text-align: center;
+}
+
+.big-number {
+    font-size: 72px;
+    font-weight: 900;
+    color: #2563eb;
+}
+
+.stats {
+    display: grid;
+    gap: 12px;
+}
+
+.stat-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 14px;
+    border-radius: 16px;
+    background: #eff6ff;
+}
+
+.registration-list {
+    display: grid;
+    gap: 14px;
+}
+
+.registration-item {
+    padding: 14px;
+    border-radius: 16px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+}
+
+.registration-item h3 {
+    margin: 0 0 6px;
+    color: #1e40af;
+}
+
+.activity {
+    font-weight: 800;
+    color: #0f766e;
+}
+
+@media (max-width: 760px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    h1 {
+        font-size: 32px;
+    }
+}

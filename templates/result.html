@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ result_title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <main class="page">
+        <section class="hero card">
+            <p class="tag">动态统计结果</p>
+            <h1>{{ result_title }}</h1>
+            <p class="description">{{ event_name }} 当前共有 {{ total }} 条报名记录。</p>
+            <a class="link-button" href="{{ url_for('index') }}">返回继续报名</a>
+        </section>
+
+        <section class="grid">
+            <section class="card">
+                <h2>活动方向统计</h2>
+                <div class="stats">
+                    {% for activity, count in stats.items() %}
+                    <div class="stat-row">
+                        <span>{{ activity }}</span>
+                        <strong>{{ count }} 人</strong>
+                    </div>
+                    {% endfor %}
+                </div>
+            </section>
+
+            <section class="card">
+                <h2>最近报名列表</h2>
+                <div class="registration-list">
+                    {% for item in registrations[-8:]|reverse %}
+                    <article class="registration-item">
+                        <h3>{{ item.name }} · {{ item.group }}</h3>
+                        <p class="activity">{{ item.activity }}</p>
+                        <p>{{ item.reason }}</p>
+                    </article>
+                    {% endfor %}
+                </div>
+            </section>
+        </section>
+    </main>
+</body>
+</html>
